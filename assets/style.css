@@ -1,0 +1,115 @@
+/* Tema profesional para la app SCIAN (Dash) */
+
+:root {
+  --bg: #f7f8fb;
+  --card-bg: #ffffff;
+  --sidebar-bg: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --primary: #2563eb; /* azul */
+  --secondary: #7c3aed; /* púrpura */
+  --accent: #10b981; /* verde */
+  --warning: #b45309;
+  --shadow: 0 1px 2px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.06);
+}
+
+html, body, .app-container {
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Header */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: linear-gradient(90deg, #0ea5e9 0%, #2563eb 60%, #7c3aed 100%);
+  color: #fff;
+  box-shadow: var(--shadow);
+}
+.app-header .brand {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 16px;
+}
+.brand-title { font-size: 18px; font-weight: 700; }
+.brand-subtitle { font-size: 13px; opacity: 0.9; }
+
+/* Root layout */
+#root { display: flex; gap: 16px; max-width: 1200px; margin: 0 auto; padding: 12px 16px; }
+
+/* Sidebar */
+#sidebar.panel {
+  background: var(--sidebar-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+.panel-title { margin: 4px 0 6px; font-weight: 700; }
+.muted { color: var(--muted); margin-top: 0; }
+.form-label { font-weight: 600; margin: 10px 0 6px; }
+
+/* Main area */
+#main { flex: 1 1 auto; padding: 12px; min-width: 0; }
+.graph-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; box-shadow: var(--shadow); padding: 6px; }
+.download-row { margin-top: 10px; }
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all .15s ease;
+}
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-primary:hover { filter: brightness(1.05); }
+.btn-secondary { background: var(--secondary); color: #fff; }
+.btn-secondary:hover { filter: brightness(1.05); }
+.btn-outline { background: transparent; color: var(--primary); border-color: var(--primary); }
+.btn-outline:hover { background: rgba(37,99,235,0.08); }
+
+/* Alerts */
+.alert { color: var(--warning); min-height: 18px; }
+
+/* Dropdown (react-select) tweaks */
+.dash-dropdown .Select-control, .Select-control {
+  border-color: var(--border);
+  border-radius: 8px;
+}
+.dash-dropdown .Select--multi .Select-value, .Select--multi .Select-value {
+  background: rgba(37,99,235,.08);
+  border-color: rgba(37,99,235,.24);
+}
+.dash-dropdown .Select-menu-outer, .Select-menu-outer {
+  border-color: var(--border);
+  box-shadow: var(--shadow);
+}
+
+/* rc-slider styles */
+.rc-slider-rail { background-color: #e5e7eb; height: 6px; }
+.rc-slider-track { background-color: var(--primary); height: 6px; }
+.rc-slider-handle {
+  border: 2px solid var(--primary);
+  width: 18px; height: 18px; margin-top: -6px; background: #fff;
+}
+
+/* Inputs */
+input[type="number"], input[type="text"], .dash-input {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  #root { flex-direction: column; padding: 12px; }
+  #sidebar { flex: 1 1 auto; max-width: 100%; border-right: none; }
+}
